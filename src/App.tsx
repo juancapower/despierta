@@ -114,7 +114,7 @@ export default function App() {
           
           <FadeIn delay={0.2}>
             <img 
-              src="/logo.png" 
+              src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773382331/logo_ofofvn.png" 
               alt="Despierta tu Power" 
               className="w-full max-w-2xl mx-auto mb-8 object-contain drop-shadow-[0_0_40px_rgba(197,160,89,0.4)]"
             />
@@ -172,8 +172,9 @@ export default function App() {
 
             <div className="mt-10">
               <a 
-                href="/brochure-despierta.pdf" 
-                download="Brochure_Despierta_PNL"
+                href="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773382337/brochure-despierta_tl9re2.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium tracking-widest uppercase transition-colors"
               >
                 <Download className="w-4 h-4" />
@@ -253,7 +254,7 @@ export default function App() {
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-gold/20 bg-gradient-to-b from-obsidian via-obsidian to-orange/10 flex items-end justify-center group">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(230,81,0,0.15),transparent_60%)] group-hover:opacity-70 transition-opacity duration-500" />
                 <img 
-                  src="/juan-carlos.png" 
+                  src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773382332/juan-carlos_pfqahf.png" 
                   alt="JuanCa Power - Coach" 
                   className="w-full h-[95%] object-contain object-bottom relative z-10 drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"
                 />
