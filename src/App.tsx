@@ -21,6 +21,7 @@ import {
   Check,
   Download
 } from 'lucide-react';
+import EventCountdown from './components/EventCountdown';
 import DiagnosticoPiloto from './components/DiagnosticoPiloto';
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe";
@@ -184,6 +185,8 @@ export default function App() {
           </FadeIn>
         </div>
       </section>
+
+      <EventCountdown />
 
       {/* Diagnóstico Piloto Automático */}
       <section className="py-24 relative z-10 bg-obsidian border-t border-white/5">
