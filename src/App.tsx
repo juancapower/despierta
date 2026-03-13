@@ -304,9 +304,9 @@ export default function App() {
                   <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
                     <MapPin className="w-6 h-6 text-gold" />
                   </div>
-                  <div className="text-3xl font-display font-bold text-white mb-1">4</div>
+                  <div className="text-3xl font-display font-bold text-white mb-1">5</div>
                   <div className="text-xs tracking-widest uppercase text-white/50">Ciudades Impactadas</div>
-                  <p className="text-xs text-white/40 mt-2">Piura, Talara, Sullana y Trujillo.</p>
+                  <p className="text-xs text-white/40 mt-2">Lima, Piura, Talara, Sullana y Trujillo.</p>
                 </div>
               </div>
             </FadeIn>
