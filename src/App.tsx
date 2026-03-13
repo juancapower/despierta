@@ -280,22 +280,72 @@ export default function App() {
                 </p>
               </div>
               
-              <div className="mt-10 pt-10 border-t border-white/10 flex flex-wrap gap-8">
-                <div>
-                  <div className="text-4xl font-display font-bold text-gold mb-1">+10</div>
-                  <div className="text-xs tracking-widest uppercase text-white/50">Años de Exp.</div>
+              <div className="mt-10 pt-10 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <Heart className="w-6 h-6 text-gold" />
+                  </div>
+                  <div className="text-3xl font-display font-bold text-white mb-1">+100</div>
+                  <div className="text-xs tracking-widest uppercase text-white/50">Vidas Despertadas</div>
+                  <p className="text-xs text-white/40 mt-2">Impacto real en conferencias y talleres.</p>
                 </div>
-                <div>
-                  <div className="text-4xl font-display font-bold text-gold mb-1">3</div>
-                  <div className="text-xs tracking-widest uppercase text-white/50">Multinacionales</div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <Clock className="w-6 h-6 text-gold" />
+                  </div>
+                  <div className="text-3xl font-display font-bold text-white mb-1">+500</div>
+                  <div className="text-xs tracking-widest uppercase text-white/50">Horas de Inmersión</div>
+                  <p className="text-xs text-white/40 mt-2">Entrenamiento de élite internacional.</p>
                 </div>
-                <div>
-                  <div className="text-4xl font-display font-bold text-gold mb-1">+100</div>
-                  <div className="text-xs tracking-widest uppercase text-white/50">Personas Impactadas</div>
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
+                    <MapPin className="w-6 h-6 text-gold" />
+                  </div>
+                  <div className="text-3xl font-display font-bold text-white mb-1">4</div>
+                  <div className="text-xs tracking-widest uppercase text-white/50">Ciudades Impactadas</div>
+                  <p className="text-xs text-white/40 mt-2">Piura, Talara, Sullana y Trujillo.</p>
                 </div>
               </div>
             </FadeIn>
           </div>
+        </div>
+      </section>
+
+      {/* Respaldado por la Élite */}
+      <section className="py-24 relative border-t border-white/5 bg-obsidian/50">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Respaldado por la Élite</h2>
+            <div className="w-12 h-1 bg-gold mx-auto rounded-full" />
+          </FadeIn>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { name: "Orlando Denegri", role: "Linaje Tony Robbins", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_orlando_denegri_wxy2xs.jpg" },
+              { name: "Pedro Castre", role: "Libertad Financiera - Forbes", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_pedro_Castre_u8itr4.jpg" },
+              { name: "Jorge Loza", role: "Visión Masiva - Creador de Wake Up", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_jorge_loza_tyijnt.jpg" },
+              { name: "Jorge Serratos", role: "Sinergia y Crecimiento", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_jorge_serratos_rxbvo8.jpg" },
+              { name: "Daniel Iriarte 'Tiburón'", role: "Ventas de Alto Impacto", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_tiburon_dxidhn.jpg" },
+              { name: "Wilfredo Guevara", role: "Clínica del Éxito", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juganca_y_wilfredo_guevara_wcvaja.jpg" },
+              { name: "Estefany Berdejo", role: "Hipnosis y Mente Subconsciente", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_estefany_berdejo_kmjprg.jpg" },
+            ].map((mentor, i) => (
+              <FadeIn key={i} delay={i * 0.05}>
+                <div className="bg-obsidian border border-white/10 rounded-xl overflow-hidden group hover:border-gold/50 transition-colors">
+                  <img src={mentor.img} alt={mentor.name} className="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+                  <div className="p-4">
+                    <h4 className="text-white font-bold text-sm">{mentor.name}</h4>
+                    <p className="text-gold text-xs mt-1">{mentor.role}</p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+          <FadeIn delay={0.5} className="mt-16 max-w-3xl mx-auto text-center">
+            <p className="text-lg md:text-xl text-white/80 font-light italic leading-relaxed">
+              "He invertido miles de dólares y años de mi vida aprendiendo de los mejores para que tú no tengas que hacerlo. En 4 horas te entregaré las llaves que ellos me dieron para despertar tu potencial."
+            </p>
+          </FadeIn>
         </div>
       </section>
 
