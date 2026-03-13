@@ -18,8 +18,10 @@ import {
   Twitter,
   Youtube,
   Facebook,
-  Check
+  Check,
+  Download
 } from 'lucide-react';
+import DiagnosticoPiloto from './components/DiagnosticoPiloto';
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe";
 
@@ -167,6 +169,30 @@ export default function App() {
                 <span className="relative">Unirme al Grupo VIP</span>
               </a>
             </div>
+
+            <div className="mt-10">
+              <a 
+                href="/brochure-despierta.pdf" 
+                download="Brochure_Despierta_PNL"
+                className="inline-flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium tracking-widest uppercase transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Descargar Brochure
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Diagnóstico Piloto Automático */}
+      <section className="py-24 relative z-10 bg-obsidian border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">¿Vives o solo existes?</h2>
+            <p className="text-white/60 max-w-2xl mx-auto">Descubre tu nivel de "Vida en Simulación" con este diagnóstico rápido de 4 preguntas.</p>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <DiagnosticoPiloto />
           </FadeIn>
         </div>
       </section>
