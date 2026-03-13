@@ -227,13 +227,13 @@ export default function App() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(230,81,0,0.15),transparent_60%)] group-hover:opacity-70 transition-opacity duration-500" />
                 <img 
                   src="/juan-carlos.png" 
-                  alt="Juan Carlos - Tu Guía" 
+                  alt="JuanCa Power - Coach" 
                   className="w-full h-[95%] object-contain object-bottom relative z-10 drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-obsidian via-obsidian/80 to-transparent z-20" />
                 <div className="absolute bottom-8 left-8 z-30">
-                  <h3 className="text-4xl font-display font-bold text-white mb-2">Juan Carlos</h3>
-                  <p className="text-gold tracking-widest uppercase text-sm font-semibold">Ingeniero Emocional</p>
+                  <h3 className="text-4xl font-display font-bold text-white mb-2">JuanCa Power</h3>
+                  <p className="text-gold tracking-widest uppercase text-sm font-semibold">Coach Estratégico de Mentalidad</p>
                 </div>
               </div>
             </FadeIn>
