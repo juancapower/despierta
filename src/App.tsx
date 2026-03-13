@@ -3,12 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { motion } from 'motion/react';
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { 
   ArrowRight, 
@@ -27,6 +22,23 @@ import {
 } from 'lucide-react';
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe";
+
+const MercadoPagoButton = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Prevent multiple injections in React strict mode
+    if (containerRef.current && containerRef.current.children.length === 0) {
+      const script = document.createElement('script');
+      script.src = 'https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js';
+      script.setAttribute('data-preference-id', '3259082514-5776d082-2dd5-40f3-8662-daaea4dcd38d');
+      script.setAttribute('data-source', 'button');
+      containerRef.current.appendChild(script);
+    }
+  }, []);
+
+  return <div ref={containerRef} className="w-full flex justify-center mt-2" />;
+};
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -73,14 +85,12 @@ export default function App() {
             >
               <WhatsAppIcon className="w-4 h-4" /> Grupo VIP
             </a>
-            <button 
-              data-tally-open="NpVO8B" 
-              data-tally-emoji-text="👋" 
-              data-tally-emoji-animation="wave"
+            <a 
+              href="#registro"
               className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase border border-gold/50 text-gold px-6 py-2.5 rounded-full hover:bg-gold hover:text-obsidian transition-all duration-300 cursor-pointer"
             >
               Reservar <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -137,16 +147,14 @@ export default function App() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button 
-                data-tally-open="NpVO8B" 
-                data-tally-emoji-text="👋" 
-                data-tally-emoji-animation="wave"
+              <a 
+                href="#registro"
                 className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-[#E8C881] text-obsidian px-10 py-5 rounded-full font-bold tracking-wider uppercase overflow-hidden transition-transform hover:scale-105 shadow-[0_0_40px_rgba(197,160,89,0.3)] hover:shadow-[0_0_60px_rgba(197,160,89,0.5)] cursor-pointer"
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 <span className="relative">Asegurar Mi Entrada VIP</span>
                 <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
               
               <a 
                 href={WHATSAPP_LINK}
@@ -323,6 +331,100 @@ export default function App() {
         </div>
       </section>
 
+      {/* Sección de Registro */}
+      <section id="registro" className="py-32 relative bg-[#0f111a]">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Asegura tu Lugar</h2>
+            <p className="text-white/60 max-w-2xl mx-auto">Estás a un paso de transformar tu mente. Completa tu registro para el entrenamiento presencial.</p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Columna de Pago */}
+            <FadeIn delay={0.1}>
+              <div className="bg-obsidian border border-gold/20 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                
+                <div className="relative z-10">
+                  <div className="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-6 border border-gold/20">
+                    Inversión Única
+                  </div>
+                  <div className="text-5xl font-display font-bold text-white mb-10">
+                    S/ 49<span className="text-xl text-white/50 font-normal">.00</span>
+                  </div>
+
+                  <div className="space-y-10">
+                    <div className="relative pl-10">
+                      <div className="absolute left-0 top-0.5 w-7 h-7 rounded-full bg-gold text-obsidian flex items-center justify-center font-bold text-sm">1</div>
+                      <h4 className="text-xl font-display font-bold text-white mb-4">Realiza tu pago</h4>
+                      
+                      {/* Yape / Plin */}
+                      <div className="bg-white/5 border border-white/10 rounded-xl p-5 mb-5 hover:border-gold/30 transition-colors">
+                        <p className="text-white/80 font-medium mb-2 flex items-center gap-2">
+                          <span className="w-3 h-3 rounded-full bg-[#742384]"></span> Yape / <span className="w-3 h-3 rounded-full bg-[#00E4A1]"></span> Plin
+                        </p>
+                        <p className="text-3xl font-display font-bold text-white tracking-wider mb-1">963 335 717</p>
+                        <p className="text-white/50 text-sm">A nombre de: Juan C*</p>
+                      </div>
+
+                      <div className="flex items-center gap-4 my-6">
+                        <div className="flex-1 h-px bg-white/10"></div>
+                        <div className="text-white/40 text-xs font-bold tracking-widest uppercase">O paga con tarjeta</div>
+                        <div className="flex-1 h-px bg-white/10"></div>
+                      </div>
+
+                      {/* Mercado Pago */}
+                      <MercadoPagoButton />
+                    </div>
+
+                    <div className="relative pl-10">
+                      <div className="absolute left-0 top-0.5 w-7 h-7 rounded-full bg-gold text-obsidian flex items-center justify-center font-bold text-sm">2</div>
+                      <h4 className="text-xl font-display font-bold text-white mb-2">Completa tu registro</h4>
+                      <p className="text-white/60 text-sm">
+                        Llena el formulario de la derecha con tus datos para confirmar tu asistencia al evento.
+                      </p>
+                    </div>
+
+                    <div className="relative pl-10">
+                      <div className="absolute left-0 top-0.5 w-7 h-7 rounded-full bg-gold text-obsidian flex items-center justify-center font-bold text-sm">3</div>
+                      <h4 className="text-xl font-display font-bold text-white mb-3">Envía tu comprobante</h4>
+                      <p className="text-white/60 text-sm mb-5">
+                        Envíanos la captura de tu pago por WhatsApp para validar tu entrada y darte acceso al grupo VIP.
+                      </p>
+                      <a 
+                        href="https://wa.me/51963335717?text=Hola%20JuanCa!%20Acabo%20de%20completar%20mi%20registro%20para%20Despierta%20tu%20Power.%20Aquí%20te%20envío%20mi%20comprobante.%20🚀"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-[#25D366]/10 text-[#25D366] px-6 py-3 rounded-full hover:bg-[#25D366] hover:text-white font-bold transition-all duration-300"
+                      >
+                        <WhatsAppIcon className="w-5 h-5" /> Enviar comprobante
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+
+            {/* Columna de Tally */}
+            <FadeIn delay={0.3} className="h-full">
+              <div className="bg-obsidian/50 border border-white/10 rounded-3xl p-2 md:p-4 h-full min-h-[700px] shadow-2xl">
+                <iframe 
+                  src="https://tally.so/embed/NpVO8B?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                  loading="lazy" 
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0" 
+                  marginHeight={0} 
+                  marginWidth={0} 
+                  title="Registro Despierta tu Power"
+                  className="min-h-[700px] rounded-2xl"
+                ></iframe>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
       {/* Footer / CTA Final */}
       <section className="py-32 relative border-t border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(197,160,89,0.1),transparent_70%)]" />
@@ -335,14 +437,12 @@ export default function App() {
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <button 
-                data-tally-open="NpVO8B" 
-                data-tally-emoji-text="👋" 
-                data-tally-emoji-animation="wave"
+              <a 
+                href="#registro"
                 className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-[#E8C881] text-obsidian px-10 py-5 rounded-full font-bold tracking-wider uppercase hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(197,160,89,0.3)] hover:shadow-[0_0_60px_rgba(197,160,89,0.5)] cursor-pointer"
               >
                 Reservar Mi Lugar Ahora
-              </button>
+              </a>
               
               <a 
                 href={WHATSAPP_LINK}
