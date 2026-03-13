@@ -24,20 +24,21 @@ import {
 const WHATSAPP_LINK = "https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe";
 
 const MercadoPagoButton = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Prevent multiple injections in React strict mode
-    if (containerRef.current && containerRef.current.children.length === 0) {
-      const script = document.createElement('script');
-      script.src = 'https://www.mercadopago.com.pe/integrations/v1/web-payment-checkout.js';
-      script.setAttribute('data-preference-id', '3259082514-5776d082-2dd5-40f3-8662-daaea4dcd38d');
-      script.setAttribute('data-source', 'button');
-      containerRef.current.appendChild(script);
-    }
-  }, []);
-
-  return <div ref={containerRef} className="w-full flex justify-center mt-2" />;
+  return (
+    <div className="w-full flex justify-center mt-2">
+      <a 
+        href="https://www.mercadopago.com.pe/checkout/v1/redirect?pref_id=3259082514-5776d082-2dd5-40f3-8662-daaea4dcd38d"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-[#009EE3] hover:bg-[#0080B7] text-white font-bold py-3 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+          <path d="M14.5 9.5c0-1.1-.9-2-2-2h-3c-1.1 0-2 .9-2 2s.9 2 2 2h3c1.1 0 2 .9 2 2s-.9 2-2 2h-3c-1.1 0-2-.9-2-2v-1H7v1c0 2.2 1.8 4 4 4h3c2.2 0 4-1.8 4-4s-1.8-4-4-4h-3c-1.1 0-2-.9-2-2s.9-2 2-2h3c1.1 0 2 .9 2 2v1h2v-1z"/>
+        </svg>
+        Pagar con Mercado Pago
+      </a>
+    </div>
+  );
 };
 
 const TikTokIcon = ({ className }: { className?: string }) => (
@@ -52,7 +53,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
+const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
