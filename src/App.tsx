@@ -314,12 +314,12 @@ export default function App() {
       {/* Respaldado por la Élite */}
       <section className="py-24 relative border-t border-white/5 bg-obsidian/50">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
+          <FadeIn className="text-center mb-24">
             <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Respaldado por la Élite</h2>
             <div className="w-12 h-1 bg-gold mx-auto rounded-full" />
           </FadeIn>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 perspective-1000">
             {[
               { name: "Orlando Denegri", role: "Linaje Tony Robbins", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_orlando_denegri_wxy2xs.jpg" },
               { name: "Pedro Castre", role: "Libertad Financiera - Forbes", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_pedro_Castre_u8itr4.jpg" },
@@ -330,18 +330,36 @@ export default function App() {
               { name: "Estefany Berdejo", role: "Hipnosis y Mente Subconsciente", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_estefany_berdejo_kmjprg.jpg" },
             ].map((mentor, i) => (
               <FadeIn key={i} delay={i * 0.05}>
-                <div className="bg-obsidian border border-white/10 rounded-xl overflow-hidden group hover:border-gold/50 transition-colors">
-                  <img src={mentor.img} alt={mentor.name} className="w-full h-48 object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
-                  <div className="p-4">
-                    <h4 className="text-white font-bold text-sm">{mentor.name}</h4>
-                    <p className="text-gold text-xs mt-1">{mentor.role}</p>
-                  </div>
-                </div>
+                <motion.div 
+                  className="relative w-48 md:w-56 aspect-[9/16] cursor-pointer group"
+                  whileHover={{ zIndex: 50 }}
+                >
+                  <motion.div 
+                    className="w-full h-full rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl bg-obsidian transition-all duration-500"
+                    whileHover={{ 
+                      rotate: 0, 
+                      scale: 1.1, 
+                      boxShadow: "0 0 30px rgba(197, 160, 89, 0.5)",
+                      borderColor: "rgba(197, 160, 89, 0.5)"
+                    }}
+                    style={{ 
+                      rotate: (i % 2 === 0 ? 1 : -1) * (5 + Math.random() * 5) + "deg" 
+                    }}
+                  >
+                    <img src={mentor.img} alt={mentor.name} className="w-full h-full object-cover" />
+                    
+                    {/* Etiqueta flotante */}
+                    <div className="absolute top-4 left-4 right-4 bg-obsidian/80 backdrop-blur-sm p-2 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <h4 className="text-white font-bold text-xs">{mentor.name}</h4>
+                      <p className="text-gold text-[10px] mt-0.5">{mentor.role}</p>
+                    </div>
+                  </motion.div>
+                </motion.div>
               </FadeIn>
             ))}
           </div>
 
-          <FadeIn delay={0.5} className="mt-16 max-w-3xl mx-auto text-center">
+          <FadeIn delay={0.5} className="mt-24 max-w-3xl mx-auto text-center">
             <p className="text-lg md:text-xl text-white/80 font-light italic leading-relaxed">
               "He invertido miles de dólares y años de mi vida aprendiendo de los mejores para que tú no tengas que hacerlo. En 4 horas te entregaré las llaves que ellos me dieron para despertar tu potencial."
             </p>
