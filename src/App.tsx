@@ -173,7 +173,7 @@ export default function App() {
 
             <div className="mt-10">
               <a 
-                href="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773382337/brochure-despierta_tl9re2.pdf" 
+                href="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773387267/Brochure_DespiertaTuPower_Mar26_dmbbnl.pdf" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium tracking-widest uppercase transition-colors"
