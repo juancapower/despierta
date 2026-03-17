@@ -4,7 +4,7 @@
  */
 
 import React, { useEffect, useRef } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
   Brain, 
@@ -56,7 +56,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string, key?: React.Key }) => (
+const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
