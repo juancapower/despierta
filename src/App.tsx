@@ -150,6 +150,12 @@ export default function App() {
               </div>
             </div>
 
+            <div className="flex flex-col items-start md:items-center justify-center gap-3 mb-10 text-white/90 text-sm md:text-base bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-6 backdrop-blur-sm max-w-lg mx-auto shadow-xl">
+              <p className="flex items-center gap-3 font-bold text-white text-lg"><span className="text-2xl">💰</span> Inversión: S/ 49 <span className="text-gold px-1">•</span> <span className="text-orange">Solo 25 lugares</span></p>
+              <p className="flex items-center gap-3"><span className="text-xl">✅</span> Paga por Yape, Plin o Mercado Pago</p>
+              <p className="flex items-center gap-3"><span className="text-xl">⚡</span> Confirmación inmediata por WhatsApp</p>
+            </div>
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a 
                 href="#registro"
