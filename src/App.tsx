@@ -21,28 +21,9 @@ import {
   Check,
   Download
 } from 'lucide-react';
-import EventCountdown from './components/EventCountdown';
 import DiagnosticoPiloto from './components/DiagnosticoPiloto';
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe";
-
-const MercadoPagoButton = () => {
-  return (
-    <div className="w-full flex justify-center mt-2">
-      <a 
-        href="https://www.mercadopago.com.pe/checkout/v1/redirect?pref_id=3259082514-5776d082-2dd5-40f3-8662-daaea4dcd38d"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="w-full bg-[#009EE3] hover:bg-[#0080B7] text-white font-bold py-3 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 shadow-lg"
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-          <path d="M14.5 9.5c0-1.1-.9-2-2-2h-3c-1.1 0-2 .9-2 2s.9 2 2 2h3c1.1 0 2 .9 2 2s-.9 2-2 2h-3c-1.1 0-2-.9-2-2v-1H7v1c0 2.2 1.8 4 4 4h3c2.2 0 4-1.8 4-4s-1.8-4-4-4h-3c-1.1 0-2-.9-2-2s.9-2 2-2h3c1.1 0 2 .9 2 2v1h2v-1z"/>
-        </svg>
-        Pagar con Mercado Pago
-      </a>
-    </div>
-  );
-};
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -90,10 +71,12 @@ export default function App() {
               <WhatsAppIcon className="w-4 h-4" /> Grupo VIP
             </a>
             <a 
-              href="#registro"
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase border border-gold/50 text-gold px-6 py-2.5 rounded-full hover:bg-gold hover:text-obsidian transition-all duration-300 cursor-pointer"
             >
-              Reservar <ArrowRight className="w-4 h-4" />
+              Unirme <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
@@ -122,77 +105,76 @@ export default function App() {
           </FadeIn>
           
           <FadeIn delay={0.4}>
-            <p className="text-xl md:text-3xl text-white/80 max-w-3xl mx-auto font-light mb-10 font-serif-italic">
-              "Una experiencia exclusiva de Ingeniería Emocional y PNL para reprogramar tu mente y alcanzar tu máximo potencial."
-            </p>
+            <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 leading-tight text-white">
+              La primera edición fue <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-orange">solo el comienzo.</span>
+            </h1>
           </FadeIn>
           
           <FadeIn delay={0.6}>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-white/80 text-sm md:text-base font-medium mb-12 bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm max-w-4xl mx-auto">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-gold" />
-                </div>
-                <div className="text-left">
-                  <p className="text-white font-bold font-display tracking-wide">Sábado 28 de Marzo</p>
-                  <p className="text-white/60 text-sm flex items-center gap-1 mt-0.5"><Clock className="w-3 h-3" /> 03:30 pm - 06:30 pm</p>
-                </div>
-              </div>
-              <div className="hidden md:block w-px h-12 bg-white/10"></div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-gold" />
-                </div>
-                <div className="text-left">
-                  <p className="text-white font-bold font-display tracking-wide">C.C. Los Conquistadores</p>
-                  <p className="text-white/60 text-sm mt-0.5">Trujillo, Perú</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-start md:items-center justify-center gap-3 mb-10 text-white/90 text-sm md:text-base bg-gradient-to-b from-white/5 to-transparent border border-white/10 rounded-2xl p-6 backdrop-blur-sm max-w-lg mx-auto shadow-xl">
-              <p className="flex items-center gap-3 font-bold text-white text-lg"><span className="text-2xl">💰</span> Inversión: S/ 49 <span className="text-gold px-1">•</span> <span className="text-orange">Solo 25 lugares</span></p>
-              <p className="flex items-center gap-3"><span className="text-xl">✅</span> Paga por Yape, Plin o Mercado Pago</p>
-              <p className="flex items-center gap-3"><span className="text-xl">⚡</span> Confirmación inmediata por WhatsApp</p>
-            </div>
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-light mb-12">
+              Únete al <span className="text-white font-bold">Salón Power</span> y sé el primero en saber cuándo llega la próxima experiencia de transformación total.
+            </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a 
-                href="#registro"
-                className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-[#E8C881] text-obsidian px-10 py-5 rounded-full font-bold tracking-wider uppercase overflow-hidden transition-transform hover:scale-105 shadow-[0_0_40px_rgba(197,160,89,0.3)] hover:shadow-[0_0_60px_rgba(197,160,89,0.5)] cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                <span className="relative">Asegurar Mi Entrada VIP</span>
-                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
-              
               <a 
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] px-10 py-5 rounded-full font-bold tracking-wider uppercase overflow-hidden transition-all hover:bg-[#25D366] hover:text-white"
+                className="group relative inline-flex items-center justify-center gap-3 bg-orange text-white px-10 py-5 rounded-full font-bold tracking-wider uppercase overflow-hidden transition-transform hover:scale-105 shadow-[0_0_40px_rgba(230,81,0,0.3)] hover:shadow-[0_0_60px_rgba(230,81,0,0.5)] cursor-pointer"
               >
-                <WhatsAppIcon className="relative w-5 h-5" />
-                <span className="relative">Unirme al Grupo VIP</span>
-              </a>
-            </div>
-
-            <div className="mt-10">
-              <a 
-                href="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773387267/Brochure_DespiertaTuPower_Mar26_dmbbnl.pdf" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-white/50 hover:text-gold text-sm font-medium tracking-widest uppercase transition-colors"
-              >
-                <Download className="w-4 h-4" />
-                Descargar Brochure
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <span className="relative">QUIERO ESTAR EN LA PRÓXIMA EDICIÓN</span>
+                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      <EventCountdown />
+      {/* Social Proof Section */}
+      <section className="bg-gradient-to-b from-obsidian to-[#121524] py-16 border-y border-gold/10 relative z-10">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gold/20">
+            <FadeIn delay={0.1} className="flex flex-col items-center p-4">
+              <Check className="w-10 h-10 text-gold mb-4" />
+              <h3 className="text-2xl font-bold mb-2 text-white">Primera edición completada ✅</h3>
+              <p className="text-white/60">Un éxito rotundo en Trujillo</p>
+            </FadeIn>
+            <FadeIn delay={0.2} className="flex flex-col items-center p-4">
+              <Sparkles className="w-10 h-10 text-orange mb-4" />
+              <h3 className="text-2xl font-bold mb-2 text-white">20 personas transformadas</h3>
+              <p className="text-white/60">En una sola tarde de inmersión</p>
+            </FadeIn>
+            <FadeIn delay={0.3} className="flex flex-col items-center p-4">
+              <Activity className="w-10 h-10 text-gold mb-4" />
+              <h3 className="text-2xl font-bold mb-2 text-white">Próxima edición en camino 🔥</h3>
+              <p className="text-white/60">Prepárate para lo que viene</p>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Next Event Banner */}
+      <section className="py-20 relative overflow-hidden z-10">
+        <div className="absolute inset-0 bg-orange/10"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
+          <FadeIn className="max-w-4xl mx-auto bg-obsidian/80 backdrop-blur-md border border-orange/30 p-10 md:p-16 rounded-3xl shadow-[0_0_50px_rgba(230,81,0,0.15)]">
+            <h2 className="text-4xl md:text-6xl font-display font-black mb-4 tracking-tight text-white">PRÓXIMA EDICIÓN <br/><span className="text-orange">MUY PRONTO</span></h2>
+            <p className="text-xl md:text-2xl text-white/80 mb-8 font-medium">
+              Trujillo 2026 <span className="text-gold">·</span> Cupos limitados <span className="text-gold">·</span> Precio exclusivo para miembros del Salón Power
+            </p>
+            <a 
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-10 py-5 font-bold text-white bg-orange rounded-full hover:bg-[#cc4800] transition-colors text-lg shadow-lg shadow-orange/20"
+            >
+              ÚNETE AL GRUPO AHORA
+            </a>
+          </FadeIn>
+        </div>
+      </section>
 
       {/* Diagnóstico Piloto Automático */}
       <section className="py-24 relative z-10 bg-obsidian border-t border-white/5">
@@ -376,160 +358,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* Bloques del Evento */}
-      <section className="py-32 relative bg-obsidian/50 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <FadeIn className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Bloques del Evento</h2>
-            <p className="text-white/60">El camino estructurado hacia tu transformación.</p>
-          </FadeIn>
-
-          <div className="space-y-12">
-            <FadeIn>
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-6 border-b border-white/10 pb-4">Registro</h3>
-            </FadeIn>
-            
-            <FadeIn delay={0.1}>
-              <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 mt-1"><Check className="w-6 h-6 text-gold" /></div>
-                <div>
-                  <h4 className="text-xl md:text-2xl font-display font-bold text-white mb-2">Bloque I - La arquitectura de la realidad.</h4>
-                  <p className="text-white/70 text-lg">Entendiendo cómo tus pensamientos están diseñando tus resultados actuales.</p>
-                </div>
-              </div>
-            </FadeIn>
-            
-            <FadeIn delay={0.2}>
-              <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 mt-1"><Check className="w-6 h-6 text-gold" /></div>
-                <div>
-                  <h4 className="text-xl md:text-2xl font-display font-bold text-white mb-2">Bloque II - Workshop: La ingeniería del Éxito</h4>
-                  <p className="text-white/70 text-lg">Ejercicio práctico de PNL para definir tus objetivos, valores y nuevos hábitos.</p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.3}>
-              <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-6 mt-12 border-b border-white/10 pb-4">Coffee Break y Networking</h3>
-            </FadeIn>
-
-            <FadeIn delay={0.4}>
-              <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 mt-1"><Check className="w-6 h-6 text-gold" /></div>
-                <div>
-                  <h4 className="text-xl md:text-2xl font-display font-bold text-white mb-2">Bloque III: Sistema Power 4</h4>
-                  <p className="text-white/70 text-lg">Alineación de tus 4 pilares: Espíritu, Mente, Cuerpo y Emociones.</p>
-                </div>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.5}>
-              <div className="flex gap-4 items-start">
-                <div className="flex-shrink-0 mt-1"><Check className="w-6 h-6 text-gold" /></div>
-                <div>
-                  <h4 className="text-xl md:text-2xl font-display font-bold text-white mb-2 uppercase">Anclaje de Identidad</h4>
-                  <p className="text-white/70 text-lg">Meditación profunda y cierre de poder para integrar tu nueva mentalidad.</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Sección de Registro */}
-      <section id="registro" className="py-32 relative bg-[#0f111a]">
-        <div className="max-w-6xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Asegura tu Lugar</h2>
-            <p className="text-white/60 max-w-2xl mx-auto">Estás a un paso de transformar tu mente. Completa tu registro para el entrenamiento presencial.</p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Columna de Pago */}
-            <FadeIn delay={0.1}>
-              <div className="bg-obsidian border border-gold/20 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
-                
-                <div className="relative z-10">
-                  <div className="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-6 border border-gold/20">
-                    Inversión Única
-                  </div>
-                  <div className="text-5xl font-display font-bold text-white mb-10">
-                    S/ 49<span className="text-xl text-white/50 font-normal">.00</span>
-                  </div>
-
-                  <div className="space-y-10">
-                    <div className="relative pl-10">
-                      <div className="absolute left-0 top-0.5 w-7 h-7 rounded-full bg-gold text-obsidian flex items-center justify-center font-bold text-sm">1</div>
-                      <h4 className="text-xl font-display font-bold text-white mb-4">Realiza tu pago</h4>
-                      
-                      {/* Yape / Plin */}
-                      <div className="bg-white/5 border border-white/10 rounded-xl p-5 mb-5 hover:border-gold/30 transition-colors">
-                        <p className="text-white/80 font-medium mb-2 flex items-center gap-2">
-                          <span className="w-3 h-3 rounded-full bg-[#742384]"></span> Yape / <span className="w-3 h-3 rounded-full bg-[#00E4A1]"></span> Plin
-                        </p>
-                        <p className="text-3xl font-display font-bold text-white tracking-wider mb-1">963 335 717</p>
-                        <p className="text-white/50 text-sm">A nombre de: Juan C*</p>
-                      </div>
-
-                      <div className="flex items-center gap-4 my-6">
-                        <div className="flex-1 h-px bg-white/10"></div>
-                        <div className="text-white/40 text-xs font-bold tracking-widest uppercase">O paga con tarjeta</div>
-                        <div className="flex-1 h-px bg-white/10"></div>
-                      </div>
-
-                      {/* Mercado Pago */}
-                      <MercadoPagoButton />
-                    </div>
-
-                    <div className="relative pl-10">
-                      <div className="absolute left-0 top-0.5 w-7 h-7 rounded-full bg-gold text-obsidian flex items-center justify-center font-bold text-sm">2</div>
-                      <h4 className="text-xl font-display font-bold text-white mb-2">Completa tu registro</h4>
-                      <p className="text-white/60 text-sm">
-                        Llena el formulario de la derecha con tus datos para confirmar tu asistencia al evento.
-                      </p>
-                    </div>
-
-                    <div className="relative pl-10">
-                      <div className="absolute left-0 top-0.5 w-7 h-7 rounded-full bg-gold text-obsidian flex items-center justify-center font-bold text-sm">3</div>
-                      <h4 className="text-xl font-display font-bold text-white mb-3">Envía tu comprobante</h4>
-                      <p className="text-white/60 text-sm mb-5">
-                        Envíanos la captura de tu pago por WhatsApp para validar tu entrada y darte acceso al grupo VIP.
-                      </p>
-                      <a 
-                        href="https://wa.me/51963335717?text=Hola%20JuanCa!%20Acabo%20de%20completar%20mi%20registro%20para%20Despierta%20tu%20Power.%20Aquí%20te%20envío%20mi%20comprobante.%20🚀"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-[#25D366]/10 text-[#25D366] px-6 py-3 rounded-full hover:bg-[#25D366] hover:text-white font-bold transition-all duration-300"
-                      >
-                        <WhatsAppIcon className="w-5 h-5" /> Enviar comprobante
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeIn>
-
-            {/* Columna de Tally */}
-            <FadeIn delay={0.3} className="h-full">
-              <div className="bg-obsidian/50 border border-white/10 rounded-3xl p-2 md:p-4 h-full min-h-[700px] shadow-2xl">
-                <iframe 
-                  src="https://tally.so/embed/NpVO8B?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-                  loading="lazy" 
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  marginHeight={0} 
-                  marginWidth={0} 
-                  title="Registro Despierta tu Power"
-                  className="min-h-[700px] rounded-2xl"
-                ></iframe>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
       {/* Footer / CTA Final */}
       <section className="py-32 relative border-t border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(197,160,89,0.1),transparent_70%)]" />
@@ -538,25 +366,17 @@ export default function App() {
           <FadeIn>
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-8">¿Listo para reescribir tu historia?</h2>
             <p className="text-xl text-white/60 font-light mb-12">
-              Los cupos son limitados para asegurar una experiencia profunda y personalizada.
+              Únete al Salón Power y sé el primero en enterarte de la próxima edición.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <a 
-                href="#registro"
-                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-[#E8C881] text-obsidian px-10 py-5 rounded-full font-bold tracking-wider uppercase hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(197,160,89,0.3)] hover:shadow-[0_0_60px_rgba(197,160,89,0.5)] cursor-pointer"
-              >
-                Reservar Mi Lugar Ahora
-              </a>
-              
-              <a 
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] px-10 py-5 rounded-full font-bold tracking-wider uppercase hover:bg-[#25D366] hover:text-white transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 bg-orange text-white px-10 py-5 rounded-full font-bold tracking-wider uppercase hover:scale-105 transition-transform duration-300 shadow-[0_0_40px_rgba(230,81,0,0.3)] hover:shadow-[0_0_60px_rgba(230,81,0,0.5)] cursor-pointer"
               >
-                <WhatsAppIcon className="w-5 h-5" />
-                Unirme al Grupo VIP
+                QUIERO ESTAR EN LA PRÓXIMA EDICIÓN
               </a>
             </div>
           </FadeIn>
