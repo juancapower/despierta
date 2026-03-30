@@ -113,7 +113,7 @@ export default function App() {
           
           <FadeIn delay={0.6}>
             <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto font-light mb-12">
-              Únete al <span className="text-white font-bold">Salón Power</span> y sé el primero en saber cuándo llega la próxima experiencia de transformación total.
+              Únete al <span className="text-white font-bold">Salón Power</span> y accede a nuestros próximos eventos de desarrollo personal y material exclusivo.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -366,7 +366,7 @@ export default function App() {
           <FadeIn>
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-8">¿Listo para reescribir tu historia?</h2>
             <p className="text-xl text-white/60 font-light mb-12">
-              Únete al Salón Power y sé el primero en enterarte de la próxima edición.
+              Únete al Salón Power y accede a nuestros próximos eventos de desarrollo personal y material exclusivo.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
