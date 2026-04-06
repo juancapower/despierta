@@ -117,10 +117,12 @@ export default function DiagnosticoPiloto() {
             </p>
             
             <a 
-              href="#registro"
-              className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-[#E8C881] text-obsidian px-8 py-4 rounded-full font-bold tracking-wider uppercase hover:scale-105 transition-transform duration-300 shadow-[0_0_30px_rgba(197,160,89,0.3)] w-full sm:w-auto"
+              href={`https://wa.me/51963335717?text=Hola%20JuanCa!%20Acabo%20de%20hacer%20el%20test%20y%20mi%20nivel%20de%20piloto%20automático%20es%20del%20${score}%25.%20Me%20gustaría%20recibir%20mi%20consejo%20de%201%20minuto.`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] px-8 py-4 rounded-full font-bold tracking-wider uppercase hover:bg-[#25D366] hover:text-white transition-all duration-300 w-full sm:w-auto"
             >
-              Despierta el 28 de marzo <ArrowRight className="w-5 h-5" />
+              Envíame tu resultado por WhatsApp y te doy un consejo de 1 minuto
             </a>
             
             <button 

@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowRight, 
   Brain, 
@@ -19,11 +19,53 @@ import {
   Youtube,
   Facebook,
   Check,
-  Download
+  Download,
+  Play,
+  X,
+  MessageCircle
 } from 'lucide-react';
 import DiagnosticoPiloto from './components/DiagnosticoPiloto';
+import ProximosEventos from './components/ProximosEventos';
 
 const WHATSAPP_LINK = "https://chat.whatsapp.com/CU66rNoc1hEB8hOFiy21Pe";
+
+const galleryImages = [
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/DtP_Inicio_gelwvj.png",
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_pizarra_onq7x1.png",
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_grito_gyud5d.png",
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_meditacion3_dkpvpr.png",
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/TallerPNL_meditacion1_tvkqdm.png",
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/TallerPNL_romperhojas_reoath.png",
+  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/TallerPNL_abrazos_qcbg7z.png"
+];
+
+const testimonials = [
+  {
+    name: "Karen G.",
+    text: "Me pareció impresionante, me gustó mucho. De manera resumida abordó las cosas muy elementales que deberíamos conocer para activar nuestro poder. Me gustó mucho.",
+    image: "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/DtP_TestimonioKarenG_cyiseb.png"
+  },
+  {
+    name: "Fiorella S.",
+    text: "Tenemos una nueva forma de ver las cosas, de cómo la superación de nosotros mismos puede ayudarnos bastante para poder avanzar en nuestro día a día y poder ayudarnos a nosotros mismos.",
+    image: "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/DtP_TestimonioFiorellaS_wvfo9b.png"
+  },
+  {
+    name: "Alvaro V.",
+    text: "Genial, descubridor, muy poderoso como JuanCa Power y de demasiado valor para mi vida, mi gente, para mi corazón, para mi familia.",
+    image: "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/DtP_Testimonio_AlvaroV_fz0ykt.png"
+  },
+  {
+    name: "Gabriella V.",
+    text: "Muy interesante, entretenido, con nuevas creencias, me ayudó bastante, muchísimo, muchísimo. Tenía una situación muy difícil, así que estoy viendo ya la forma de cómo solucionarla.",
+    image: "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512313/DtP_TestimonioLadyV_ptjeho.png"
+  },
+  {
+    name: "Ybeth A.",
+    text: "Me pareció muy interesante de verdad. Me ha hecho recordar que a veces como personas olvidamos lo fuerte que somos y el cambio está en nosotros mismos así que me voy con otra mentalidad.",
+    image: "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512313/DtP_Testimonio_YbethA_evfhin.png"
+  }
+];
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -50,6 +92,8 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
 );
 
 export default function App() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-obsidian selection:bg-gold/30 selection:text-gold relative overflow-hidden">
       {/* Humo Dorado Global */}
@@ -58,17 +102,31 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-obsidian/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="font-display text-2xl font-bold tracking-widest text-white">
+          <a href="https://juancapower.com" target="_blank" rel="noopener noreferrer" className="font-display text-2xl font-bold tracking-widest text-white hover:text-gold transition-colors">
             POWER<span className="text-gold">.</span>
-          </div>
-          <div className="hidden md:flex items-center gap-4">
+          </a>
+          <div className="hidden md:flex items-center gap-6">
             <a 
-              href={WHATSAPP_LINK}
+              href="https://juancapower.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase text-white/80 hover:text-[#25D366] transition-colors"
+              className="text-sm font-semibold tracking-wider uppercase text-white/80 hover:text-gold transition-colors"
             >
-              <WhatsAppIcon className="w-4 h-4" /> Grupo VIP
+              Inicio
+            </a>
+            <a 
+              href="https://digital.juancapower.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold tracking-wider uppercase text-white/80 hover:text-gold transition-colors"
+            >
+              Agencia Digital
+            </a>
+            <a 
+              href="#proximos-eventos"
+              className="text-sm font-semibold tracking-wider uppercase text-white/80 hover:text-gold transition-colors"
+            >
+              Próximos Eventos
             </a>
             <a 
               href={WHATSAPP_LINK}
@@ -76,7 +134,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-sm font-semibold tracking-wider uppercase border border-gold/50 text-gold px-6 py-2.5 rounded-full hover:bg-gold hover:text-obsidian transition-all duration-300 cursor-pointer"
             >
-              Unirme <ArrowRight className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" /> Unirme al Salón Power
             </a>
           </div>
         </div>
@@ -116,17 +174,35 @@ export default function App() {
               Únete al <span className="text-white font-bold">Salón Power</span> y accede a nuestros próximos eventos de desarrollo personal y material exclusivo.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 flex-wrap max-w-4xl mx-auto">
+              <a 
+                href="#proximos-eventos"
+                className="group relative inline-flex items-center justify-center gap-3 bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold tracking-wider uppercase hover:bg-white/20 transition-all duration-300 w-full sm:w-auto"
+              >
+                Próximos Eventos
+              </a>
               <a 
                 href={WHATSAPP_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 bg-orange text-white px-10 py-5 rounded-full font-bold tracking-wider uppercase overflow-hidden transition-transform hover:scale-105 shadow-[0_0_40px_rgba(230,81,0,0.3)] hover:shadow-[0_0_60px_rgba(230,81,0,0.5)] cursor-pointer"
+                className="group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange to-[#cc4800] text-white px-8 py-4 rounded-full font-bold tracking-wider uppercase overflow-hidden transition-transform hover:scale-105 shadow-[0_0_40px_rgba(230,81,0,0.4)] hover:shadow-[0_0_60px_rgba(230,81,0,0.6)] cursor-pointer w-full sm:w-auto border border-orange/50"
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                <span className="relative">QUIERO ESTAR EN LA PRÓXIMA EDICIÓN</span>
-                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <span className="relative">Unirme al Salón Power</span>
+                <WhatsAppIcon className="relative w-5 h-5" />
               </a>
+            </div>
+            
+            <div className="mt-8 flex justify-center">
+              <button 
+                onClick={() => setIsVideoOpen(true)}
+                className="inline-flex items-center gap-2 text-white/70 hover:text-gold transition-colors font-semibold tracking-wider uppercase text-sm group"
+              >
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-gold/20 group-hover:scale-110 transition-all">
+                  <Play className="w-4 h-4 text-gold" fill="currentColor" />
+                </div>
+                Ver resumen de la 1ra Edición
+              </button>
             </div>
           </FadeIn>
         </div>
@@ -151,6 +227,71 @@ export default function App() {
               <h3 className="text-2xl font-bold mb-2 text-white">Próxima edición en camino 🔥</h3>
               <p className="text-white/60">Prepárate para lo que viene</p>
             </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-24 bg-[#121524] relative z-10 border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 text-white">LA EXPERIENCIA <span className="text-gold">EN VIVO</span></h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">Así se vivió la primera edición en Trujillo. Ver para creer.</p>
+          </FadeIn>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {galleryImages.map((src, index) => (
+              <FadeIn key={index} delay={index * 0.1} className={`relative rounded-2xl overflow-hidden group ${index === 0 ? 'col-span-2 row-span-2' : ''}`}>
+                <div className="aspect-square w-full h-full">
+                  <img 
+                    src={src} 
+                    alt={`Evento Despierta el Power ${index + 1}`} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    referrerPolicy="no-referrer"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-24 bg-obsidian relative z-10">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_center,rgba(230,81,0,0.05),transparent_70%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <FadeIn className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 text-white">CASOS DE <span className="text-orange">ÉXITO</span></h2>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">Lo que dicen quienes ya despertaron su power.</p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
+              <FadeIn key={index} delay={index * 0.1}>
+                <div className="bg-white/5 border border-white/10 rounded-3xl p-8 h-full flex flex-col hover:border-gold/30 transition-colors duration-300">
+                  <div className="flex items-center gap-4 mb-6">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name} 
+                      className="w-16 h-16 rounded-full object-cover border-2 border-gold/50"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div>
+                      <h4 className="text-white font-bold text-lg">{testimonial.name}</h4>
+                      <div className="flex text-gold">
+                        {[...Array(5)].map((_, i) => (
+                          <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-white/80 italic flex-grow">"{testimonial.text}"</p>
+                </div>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -357,6 +498,9 @@ export default function App() {
           </FadeIn>
         </div>
       </section>
+
+      {/* Próximos Eventos */}
+      <ProximosEventos />
 
       {/* Footer / CTA Final */}
       <section className="py-32 relative border-t border-white/5 overflow-hidden">
