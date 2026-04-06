@@ -33,8 +33,6 @@ const galleryImages = [
   "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/DtP_Inicio_gelwvj.png",
   "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_pizarra_onq7x1.png",
   "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_grito_gyud5d.png",
-  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512311/TallerPNL_meditacion3_dkpvpr.png",
-  "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/TallerPNL_meditacion1_tvkqdm.png",
   "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/TallerPNL_romperhojas_reoath.png",
   "https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775512312/TallerPNL_abrazos_qcbg7z.png"
 ];
@@ -150,7 +148,7 @@ export default function App() {
           <FadeIn>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
               <Sparkles className="w-4 h-4 text-orange" />
-              <span className="text-sm font-medium tracking-widest uppercase text-white/80">Trujillo, Perú</span>
+              <span className="text-sm font-medium tracking-widest uppercase text-white/80">Gira Nacional</span>
             </div>
           </FadeIn>
           
@@ -215,7 +213,7 @@ export default function App() {
             <FadeIn delay={0.1} className="flex flex-col items-center p-4">
               <Check className="w-10 h-10 text-gold mb-4" />
               <h3 className="text-2xl font-bold mb-2 text-white">Primera edición completada ✅</h3>
-              <p className="text-white/60">Un éxito rotundo en Trujillo</p>
+              <p className="text-white/60">Un éxito rotundo en nuestra primera edición</p>
             </FadeIn>
             <FadeIn delay={0.2} className="flex flex-col items-center p-4">
               <Sparkles className="w-10 h-10 text-orange mb-4" />
@@ -236,7 +234,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 text-white">LA EXPERIENCIA <span className="text-gold">EN VIVO</span></h2>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">Así se vivió la primera edición en Trujillo. Ver para creer.</p>
+            <p className="text-xl text-white/60 max-w-2xl mx-auto">Así se vivió la primera edición. Ver para creer.</p>
           </FadeIn>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -303,7 +301,7 @@ export default function App() {
           <FadeIn className="max-w-4xl mx-auto bg-obsidian/80 backdrop-blur-md border border-orange/30 p-10 md:p-16 rounded-3xl shadow-[0_0_50px_rgba(230,81,0,0.15)]">
             <h2 className="text-4xl md:text-6xl font-display font-black mb-4 tracking-tight text-white">PRÓXIMA EDICIÓN <br/><span className="text-orange">MUY PRONTO</span></h2>
             <p className="text-xl md:text-2xl text-white/80 mb-8 font-medium">
-              Trujillo 2026 <span className="text-gold">·</span> Cupos limitados <span className="text-gold">·</span> Precio exclusivo para miembros del Salón Power
+              Perú 2026 <span className="text-gold">·</span> Cupos limitados <span className="text-gold">·</span> Precio exclusivo para miembros del Salón Power
             </p>
             <a 
               href={WHATSAPP_LINK}
@@ -549,12 +547,50 @@ export default function App() {
             </div>
             
             <div className="text-sm text-white/40">
-              © {new Date().getFullYear()} Despierta tu Power. Trujillo, Perú.
+              © {new Date().getFullYear()} Despierta tu Power. Perú.
             </div>
           </FadeIn>
         </div>
       </section>
       
+      {/* Floating WhatsApp Button */}
+      <a
+        href={WHATSAPP_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full font-bold shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-transform"
+      >
+        <WhatsAppIcon className="w-6 h-6" />
+        <span className="hidden sm:inline">Conversemos</span>
+      </a>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {isVideoOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-obsidian/95 backdrop-blur-sm"
+          >
+            <div className="relative w-full max-w-sm aspect-[9/16] bg-black rounded-2xl overflow-hidden shadow-2xl">
+              <button
+                onClick={() => setIsVideoOpen(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-gold transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <iframe
+                src="https://www.youtube.com/embed/vfaUoNsRtGg?autoplay=1&loop=1&playlist=vfaUoNsRtGg"
+                title="Resumen 1ra Edición"
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
