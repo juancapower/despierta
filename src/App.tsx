@@ -229,6 +229,8 @@ export default function App() {
         </div>
       </section>
 
+      <ProximosEventos />
+
       {/* Gallery Section */}
       <section className="py-24 bg-[#121524] relative z-10 border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6">
@@ -384,7 +386,7 @@ export default function App() {
               <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-gold/20 bg-gradient-to-b from-obsidian via-obsidian to-orange/10 flex items-end justify-center group">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(230,81,0,0.15),transparent_60%)] group-hover:opacity-70 transition-opacity duration-500" />
                 <img 
-                  src="https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773382332/juan-carlos_pfqahf.png" 
+                  src="https://res.cloudinary.com/ddn6qh7ve/image/upload/q_auto/f_auto/v1775514609/JuanCa_Power_ygvsaf.png" 
                   alt="JuanCa Power - Coach" 
                   className="w-full h-[95%] object-contain object-bottom relative z-10 drop-shadow-2xl transition-transform duration-700 group-hover:scale-105"
                 />
@@ -415,7 +417,7 @@ export default function App() {
                   <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center mb-4">
                     <Heart className="w-6 h-6 text-gold" />
                   </div>
-                  <div className="text-3xl font-display font-bold text-white mb-1">+100</div>
+                  <div className="text-3xl font-display font-bold text-white mb-1">+200</div>
                   <div className="text-xs tracking-widest uppercase text-white/50">Vidas Despertadas</div>
                   <p className="text-xs text-white/40 mt-2">Impacto real en conferencias y talleres.</p>
                 </div>
@@ -441,64 +443,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Respaldado por la Élite */}
-      <section className="py-24 relative border-t border-white/5 bg-obsidian/50">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-24">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-white">Respaldado por la Élite</h2>
-            <div className="w-12 h-1 bg-gold mx-auto rounded-full" />
-          </FadeIn>
-          
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 perspective-1000">
-            {[
-              { name: "Orlando Denegri", role: "Linaje Tony Robbins", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_orlando_denegri_wxy2xs.jpg" },
-              { name: "Pedro Castre", role: "Libertad Financiera - Forbes", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_pedro_Castre_u8itr4.jpg" },
-              { name: "Jorge Loza", role: "Visión Masiva - Creador de Wake Up", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_jorge_loza_tyijnt.jpg" },
-              { name: "Jorge Serratos", role: "Sinergia y Crecimiento", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_jorge_serratos_rxbvo8.jpg" },
-              { name: "Daniel Iriarte 'Tiburón'", role: "Ventas de Alto Impacto", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_tiburon_dxidhn.jpg" },
-              { name: "Wilfredo Guevara", role: "Clínica del Éxito", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juganca_y_wilfredo_guevara_wcvaja.jpg" },
-              { name: "Estefany Berdejo", role: "Hipnosis y Mente Subconsciente", img: "https://res.cloudinary.com/ddn6qh7ve/image/upload/v1773384474/juanca_y_estefany_berdejo_kmjprg.jpg" },
-            ].map((mentor, i) => (
-              <FadeIn key={i} delay={i * 0.05}>
-                <motion.div 
-                  className="relative w-48 md:w-56 aspect-[9/16] cursor-pointer group"
-                  whileHover={{ zIndex: 50 }}
-                >
-                  <motion.div 
-                    className="w-full h-full rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl bg-obsidian transition-all duration-500"
-                    whileHover={{ 
-                      rotate: 0, 
-                      scale: 1.1, 
-                      boxShadow: "0 0 30px rgba(197, 160, 89, 0.5)",
-                      borderColor: "rgba(197, 160, 89, 0.5)"
-                    }}
-                    style={{ 
-                      rotate: (i % 2 === 0 ? 1 : -1) * (5 + Math.random() * 5) + "deg" 
-                    }}
-                  >
-                    <img src={mentor.img} alt={mentor.name} className="w-full h-full object-cover" />
-                    
-                    {/* Etiqueta flotante */}
-                    <div className="absolute top-4 left-4 right-4 bg-obsidian/80 backdrop-blur-sm p-2 rounded-lg border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h4 className="text-white font-bold text-xs">{mentor.name}</h4>
-                      <p className="text-gold text-[10px] mt-0.5">{mentor.role}</p>
-                    </div>
-                  </motion.div>
-                </motion.div>
-              </FadeIn>
-            ))}
-          </div>
-
-          <FadeIn delay={0.5} className="mt-24 max-w-3xl mx-auto text-center">
-            <p className="text-lg md:text-xl text-white/80 font-light italic leading-relaxed">
-              "He invertido miles de dólares y años de mi vida aprendiendo de los mejores para que tú no tengas que hacerlo. En 4 horas te entregaré las llaves que ellos me dieron para despertar tu potencial."
-            </p>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Próximos Eventos */}
-      <ProximosEventos />
+      {/* Proximos Eventos moved up already */}
 
       {/* Footer / CTA Final */}
       <section className="py-32 relative border-t border-white/5 overflow-hidden">
@@ -558,7 +503,7 @@ export default function App() {
         href={WHATSAPP_LINK}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#25D366] text-white px-4 py-3 rounded-full font-bold shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:scale-105 transition-transform"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 bg-[#E65100] text-white px-4 py-3 rounded-full font-bold shadow-[0_4px_20px_rgba(230,81,0,0.4)] hover:scale-105 transition-transform"
       >
         <WhatsAppIcon className="w-6 h-6" />
         <span className="hidden sm:inline">Conversemos</span>
